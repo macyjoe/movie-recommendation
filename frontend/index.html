@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🎬 Movie Finder</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- 헤더 -->
+  <header>
+    <div class="header-inner">
+      <h1 class="logo" onclick="showHome()">🎬 Movie Finder</h1>
+      <form class="search-bar" onsubmit="handleSearch(event)">
+        <input type="text" id="search-input" placeholder="영화 제목을 검색하세요..." autocomplete="off" />
+        <button type="submit">검색</button>
+      </form>
+    </div>
+  </header>
+
+  <!-- 메인 -->
+  <main id="app">
+
+    <!-- 홈: 인기 영화 -->
+    <section id="home-section">
+      <h2 class="section-title">🔥 인기 영화</h2>
+      <div id="popular-grid" class="movie-grid"></div>
+    </section>
+
+    <!-- 검색 결과 -->
+    <section id="search-section" class="hidden">
+      <h2 class="section-title" id="search-heading"></h2>
+      <div id="search-grid" class="movie-grid"></div>
+    </section>
+
+    <!-- 추천 결과 -->
+    <section id="recommend-section" class="hidden">
+      <button class="back-btn" onclick="goBack()">← 뒤로</button>
+      <div id="selected-movie-card"></div>
+      <h2 class="section-title">🎯 이런 영화는 어때요?</h2>
+      <div id="recommend-grid" class="movie-grid"></div>
+    </section>
+
+  </main>
+
+  <!-- 로딩 스피너 -->
+  <div id="loading" class="loading hidden">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- 영화 상세 모달 -->
+  <div id="modal-overlay" class="modal-overlay hidden" onclick="closeModal(event)">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
