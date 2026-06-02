@@ -1,4 +1,6 @@
-const API = 'http://localhost:8000';
+const API = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+  ? 'http://localhost:8000'
+  : 'https://your-app.railway.app';  // 배포 후 Railway URL로 교체
 const POSTER_BASE = 'https://image.tmdb.org/t/p/w300';
 
 let prevSection = 'home';
